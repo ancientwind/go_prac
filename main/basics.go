@@ -70,9 +70,10 @@ func main() {
 	fmt.Printf("numPrt stress after set value: %p, and its referenced data is: %d \n", numPtr, *numPtr)
 
 	hello := "hello"
-	var hiPtr *string = &hello
+	var hiPtr = &hello
 	*hiPtr = "world"
 	fmt.Println(*hiPtr)
+	fmt.Println(hello)
 	//var namePtr = &Name   // error, cannot get address of a literal or const
 	//var tenPtr = &10
 
@@ -119,4 +120,37 @@ func main() {
 		fmt.Println("it's evening")
 
 	}
+
+	/**
+	for iteration
+	 */
+	for i, j := 0, 10; i < j; i, j = i + 1, j - 2 {
+		fmt.Println(i, j)
+	}
+
+	gol := "Go is a beautiful language!"
+	for ix := 0; ix < len(gol); ix++ {
+		fmt.Printf("Character on position %d is %c \n", ix, gol[ix])
+	}
+
+	for i:=0; i<3; i++ {
+		for j:=0; j<10; j++ {
+			if j>5 {
+				break // break will only jump out the nearest control
+			}
+			fmt.Print(j)
+		}
+		fmt.Print("  ")
+	}
+
+	/**
+	LABEL and goto --- not recommend to use
+	 */
+    i = 0
+	HERE:
+		fmt.Print(i)
+        i++
+        if i == 5 {
+			return}
+		goto HERE
 }
